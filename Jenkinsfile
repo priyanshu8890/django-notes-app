@@ -26,9 +26,7 @@ pipeline {
         stage("Deploy") {
             steps {
                 echo "Deploying the app"
-                withCredentials([usernamePassword(credentialsId:"dockerhub",usernameVariable:"dockerhubUser",passwordVariable:"dockerhubPass")]){
                 sh "docker-compose down && docker-compose up -d"
-                }
             }
         }
     }
